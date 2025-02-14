@@ -34,12 +34,86 @@ mongoose.connect(`mongodb+srv://${username}:${password}@nodeapi.2qisd.mongodb.ne
 app.get('/', (req, res) => {
     // res.send('Welcome to the Node API! Server is up and running.');
     res.send(`
-    <div style="text-align: center; border: 2px solid black; padding: 10px; ">
-    <h1>Welcome to the Node API! Server is up and running.</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node API</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border: 3px solid black;
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            margin: auto;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background-color: #333;
+            color: white;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        th {
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Node API! Server is up and running.</h1>
         <p>This API allows you to manage products.</p>
-        <table border="1" style="width:80%; margin:auto; text-align:left; border-collapse: collapse;">
+        
+        <table>
             <thead>
-                <tr style="background-color: #f2f2f2; color: red;">
+                <tr>
                     <th>Method</th>
                     <th>Endpoint</th>
                     <th>Description</th>
@@ -47,33 +121,36 @@ app.get('/', (req, res) => {
             </thead>
             <tbody>
                 <tr>
-                    <td>GET</td>
+                    <td><strong>GET</strong></td>
                     <td>/products</td>
                     <td>Retrieve all products</td>
                 </tr>
                 <tr>
-                    <td>GET</td>
+                    <td><strong>GET</strong></td>
                     <td>/products/:id</td>
                     <td>Retrieve a single product</td>
                 </tr>
                 <tr>
-                    <td>POST</td>
+                    <td><strong>POST</strong></td>
                     <td>/products</td>
                     <td>Add a new product</td>
                 </tr>
                 <tr>
-                    <td>PUT</td>
+                    <td><strong>PUT</strong></td>
                     <td>/products/:id</td>
                     <td>Update a product</td>
                 </tr>
                 <tr>
-                    <td>DELETE</td>
+                    <td><strong>DELETE</strong></td>
                     <td>/products/:id</td>
                     <td>Delete a product</td>
                 </tr>
             </tbody>
         </table>
-        </div>    
+    </div>
+</body>
+</html>
+ 
     `)
 });
 
