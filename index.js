@@ -41,36 +41,60 @@ app.get('/', (req, res) => {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Node API</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
+        /* Define color variables */
+        :root {
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --container-bg: white;
+            --border-color: #333;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+            --table-header-bg: #333;
+            --table-header-text: white;
+            --table-row-bg: #f9f9f9;
+            --table-hover-bg: #f1f1f1;
+            --table-border-color: #ddd;
         }
 
+        /* Dark mode variables */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1e1e1e;
+                --text-color: #f5f5f5;
+                --container-bg: #2c2c2c;
+                --border-color: #f5f5f5;
+                --shadow-color: rgba(255, 255, 255, 0.1);
+                --table-header-bg: #444;
+                --table-header-text: white;
+                --table-row-bg: #333;
+                --table-hover-bg: #555;
+                --table-border-color: #555;
+            }
+        }
+
+        /* Apply variables */
         body {
             text-align: center;
-            background-color: #f4f4f4;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             padding: 20px;
+            transition: background 0.3s, color 0.3s;
         }
 
         .container {
-            background: white;
-            border: 3px solid black;
+            background: var(--container-bg);
+            border: 3px solid var(--border-color);
             border-radius: 10px;
             padding: 20px;
             width: 80%;
             margin: auto;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 5px 5px 15px var(--shadow-color);
         }
 
         h1 {
-            color: #333;
             margin-bottom: 10px;
         }
 
         p {
-            color: #666;
             font-size: 1.1rem;
             margin-bottom: 20px;
         }
@@ -79,26 +103,25 @@ app.get('/', (req, res) => {
             width: 100%;
             margin-top: 20px;
             border-collapse: collapse;
-            background: white;
         }
 
         thead {
-            background-color: #333;
-            color: white;
+            background-color: var(--table-header-bg);
+            color: var(--table-header-text);
         }
 
         th, td {
-            border: 1px solid #ddd;
+            border: 1px solid var(--table-border-color);
             padding: 12px;
             text-align: left;
         }
 
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: var(--table-row-bg);
         }
 
         tr:hover {
-            background-color: #f1f1f1;
+            background-color: var(--table-hover-bg);
         }
 
         th {
@@ -149,8 +172,7 @@ app.get('/', (req, res) => {
         </table>
     </div>
 </body>
-</html>
- 
+</html> 
     `)
 });
 
