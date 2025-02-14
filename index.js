@@ -32,7 +32,49 @@ mongoose.connect(`mongodb+srv://${username}:${password}@nodeapi.2qisd.mongodb.ne
 // This endpoint serves as the entry point of the Node API.
 // It responds with a simple message to confirm the server is running and accessible.
 app.get('/', (req, res) => {
-    res.send('Welcome to the Node API! Server is up and running.');
+    // res.send('Welcome to the Node API! Server is up and running.');
+    res.send(`
+    <div style="text-align: center; border: 2px solid black; padding: 10px; ">
+    <h1>Welcome to the Node API! Server is up and running.</h1>
+        <p>This API allows you to manage products.</p>
+        <table border="1" style="width:80%; margin:auto; text-align:left; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #f2f2f2; color: red;">
+                    <th>Method</th>
+                    <th>Endpoint</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/products</td>
+                    <td>Retrieve all products</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/products/:id</td>
+                    <td>Retrieve a single product</td>
+                </tr>
+                <tr>
+                    <td>POST</td>
+                    <td>/products</td>
+                    <td>Add a new product</td>
+                </tr>
+                <tr>
+                    <td>PUT</td>
+                    <td>/products/:id</td>
+                    <td>Update a product</td>
+                </tr>
+                <tr>
+                    <td>DELETE</td>
+                    <td>/products/:id</td>
+                    <td>Delete a product</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>    
+    `)
 });
 
 // get all product
